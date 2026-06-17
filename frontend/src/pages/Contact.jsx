@@ -3,7 +3,7 @@ import { Mail } from "lucide-react";
 
 const SERVICE_ID = "service_ap17ges";
 const TEMPLATE_ID = "template_yo6lq11";
-const PUBLIC_KEY = "your_emailjs_public_key"; // Update in EmailJS dashboard linkup
+const PUBLIC_KEY = "VOfwnWDndJt_i6AKw";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
