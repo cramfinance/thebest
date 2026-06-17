@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Mail } from "lucide-react";
+import { Mail, Instagram } from "lucide-react";
 
 const SERVICE_ID = "service_ap17ges";
 const TEMPLATE_ID = "template_yo6lq11";
