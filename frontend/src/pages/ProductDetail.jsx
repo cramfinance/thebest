@@ -1,6 +1,7 @@
 import { useParams, Link, useLocation, useNavigate } from "react-router-dom";
 import { ArrowLeft, Check, X, ArrowUpRight } from "lucide-react";
 import { getProduct } from "../data/products";
+import { getAffiliate } from "../data/affiliates";
 import LiveApy from "../components/LiveApy";
 
 export default function ProductDetail() {
@@ -22,6 +23,7 @@ export default function ProductDetail() {
   }
 
   const isAccount = product.section === "accounts";
+  const affiliate = getAffiliate(product.slug, `Visit ${product.issuer}`);
 
   return (
     <main data-testid={`page-product-${slug}`} style={{ padding: "120px 0 100px" }}>
