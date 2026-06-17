@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 import ProductRow from "../components/ProductRow";
 import TabBar from "../components/TabBar";
 import { accounts } from "../data/products";

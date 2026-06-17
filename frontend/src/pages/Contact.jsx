@@ -47,7 +47,7 @@ export default function Contact() {
         setForm({ name: "", email: "", message: "" });
       })
       .catch(() => {
-        setNote("Couldn't send right now. Email hello@cram.finance directly.");
+        setNote("Couldn't send right now. Email thecramfinance@gmail.com directly.");
         setNoteColor("var(--rust)");
       })
       .finally(() => setSending(false));
@@ -121,7 +121,7 @@ export default function Contact() {
             </p>
 
             <a
-              href="mailto:hello@cram.finance"
+              href="mailto:thecramfinance@gmail.com"
               className="card-base"
               style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px 22px", marginBottom: 12 }}
               data-testid="contact-email-link"
@@ -130,9 +130,26 @@ export default function Contact() {
                 <div className="font-mono" style={{ fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--t3)" }}>
                   Email
                 </div>
-                <div style={{ fontWeight: 500, marginTop: 4 }}>hello@cram.finance</div>
+                <div style={{ fontWeight: 500, marginTop: 4 }}>thecramfinance@gmail.com</div>
               </div>
               <Mail size={20} color="var(--emerald)" />
+            </a>
+
+            <a
+              href="https://www.instagram.com/cramfinance"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card-base"
+              style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px 22px", marginBottom: 12 }}
+              data-testid="contact-instagram-link"
+            >
+              <div>
+                <div className="font-mono" style={{ fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--t3)" }}>
+                  Instagram
+                </div>
+                <div style={{ fontWeight: 500, marginTop: 4 }}>@cramfinance</div>
+              </div>
+              <Instagram size={20} color="var(--emerald)" />
             </a>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 import ProductRow from "../components/ProductRow";
 import TabBar from "../components/TabBar";
 import { apps } from "../data/products";
@@ -37,10 +38,21 @@ export default function Apps() {
           ]}
         />
 
-        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-          {list.map((p, i) => (
-            <ProductRow key={p.slug} product={p} index={i} sectionPath="/apps" />
-          ))}
+        <div style={{ position: "relative" }}>
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={tab}
+              initial={{ opacity: 0, y: 12, filter: "blur(4px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              exit={{ opacity: 0, y: -8, filter: "blur(3px)" }}
+              transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+              style={{ display: "flex", flexDirection: "column", gap: 16 }}
+            >
+              {list.map((p, i) => (
+                <ProductRow key={p.slug} product={p} index={i} sectionPath="/apps" />
+              ))}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </section>
     </main>

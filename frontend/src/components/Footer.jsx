@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Github, Twitter, Mail } from "lucide-react";
+import { Instagram, Mail } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -108,14 +108,11 @@ export default function Footer() {
         >
           <span>© {new Date().getFullYear()} CRAM Finance. Not financial advice — just honest comparison.</span>
           <div style={{ display: "flex", gap: 14 }}>
-            <a href="mailto:hello@cram.finance" aria-label="Email" data-testid="footer-mail">
+            <a href="mailto:thecramfinance@gmail.com" aria-label="Email" data-testid="footer-mail">
               <Mail size={18} />
             </a>
-            <a href="#" aria-label="Twitter" data-testid="footer-twitter">
-              <Twitter size={18} />
-            </a>
-            <a href="#" aria-label="GitHub" data-testid="footer-github">
-              <Github size={18} />
+            <a href="https://www.instagram.com/cramfinance" target="_blank" rel="noopener noreferrer" aria-label="Instagram" data-testid="footer-instagram">
+              <Instagram size={18} />
             </a>
           </div>
         </div>
