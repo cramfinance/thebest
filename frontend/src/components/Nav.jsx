@@ -52,27 +52,21 @@ export default function Nav() {
           justifyContent: "space-between",
         }}
       >
-        <Link to="/" data-testid="nav-logo" style={{ display: "inline-flex", alignItems: "center", gap: 10 }}>
-          <span
+        <Link to="/" data-testid="nav-logo" style={{ display: "inline-flex", alignItems: "center", gap: 12 }}>
+          <img
+            src={`${process.env.PUBLIC_URL || ""}/cram-logo.png`}
+            alt="CRAM Finance"
             style={{
-              width: 36,
-              height: 36,
-              borderRadius: 12,
-              background: "var(--ink-deep)",
-              color: "var(--gold)",
-              display: "grid",
-              placeItems: "center",
-              fontFamily: "Fraunces, serif",
-              fontStyle: "italic",
-              fontSize: 22,
-              fontWeight: 500,
+              width: 38,
+              height: 38,
+              borderRadius: 10,
+              objectFit: "cover",
+              display: "block",
               boxShadow: "var(--shadow-sm)",
             }}
-          >
-            c
-          </span>
+          />
           <span style={{ fontFamily: "Fraunces, serif", fontSize: 22, letterSpacing: "-0.01em", color: "var(--t1)" }}>
-            cram<span style={{ color: "var(--emerald)" }}>.</span>finance
+            CRAM <span style={{ color: "var(--emerald)", fontStyle: "italic" }}>Finance</span>
           </span>
         </Link>
 

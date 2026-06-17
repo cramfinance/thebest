@@ -24,23 +24,19 @@ export default function Footer() {
           className="footer-top"
         >
           <div>
-            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 18 }}>
-              <span
+            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 18 }}>
+              <img
+                src={`${process.env.PUBLIC_URL || ""}/cram-logo.png`}
+                alt="CRAM Finance"
                 style={{
-                  width: 38,
-                  height: 38,
-                  borderRadius: 12,
-                  background: "var(--gold)",
-                  color: "var(--emerald-deep)",
-                  display: "grid",
-                  placeItems: "center",
-                  fontFamily: "Fraunces, serif",
-                  fontStyle: "italic",
-                  fontSize: 24,
+                  width: 42,
+                  height: 42,
+                  borderRadius: 10,
+                  objectFit: "cover",
+                  display: "block",
+                  background: "var(--t-on-dark)",
                 }}
-              >
-                c
-              </span>
+              />
               <span
                 style={{
                   fontFamily: "Fraunces, serif",
@@ -49,7 +45,7 @@ export default function Footer() {
                   letterSpacing: "-0.01em",
                 }}
               >
-                cram<span style={{ color: "var(--gold)" }}>.</span>finance
+                CRAM <span style={{ color: "var(--gold)", fontStyle: "italic" }}>Finance</span>
               </span>
             </div>
             <p style={{ color: "var(--t-on-dark-2)", maxWidth: 360, fontSize: 15, lineHeight: 1.6 }}>
