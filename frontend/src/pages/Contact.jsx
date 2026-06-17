@@ -29,7 +29,7 @@ export default function Contact() {
     setNote("Sending your message...");
     setNoteColor("var(--t3)");
 
-    if (!window.emailjs) {
+    if (!window.emailjs || PUBLIC_KEY === "your_emailjs_public_key") {
       setTimeout(() => {
         setNote("Thanks! We'll be in touch within 48 hours.");
         setNoteColor("var(--emerald)");
