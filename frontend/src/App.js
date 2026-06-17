@@ -1,8 +1,11 @@
 import { useEffect } from "react";
 import "@/App.css";
 import { HashRouter, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import PageMotion from "@/components/PageMotion";
+import RouteProgress from "@/components/RouteProgress";
 import Home from "@/pages/Home";
 import Accounts from "@/pages/Accounts";
 import Apps from "@/pages/Apps";
@@ -21,28 +24,38 @@ function ScrollToTop() {
   return null;
 }
 
+function AnimatedRoutes() {
+  const location = useLocation();
+  return (
+    <AnimatePresence mode="wait" initial={false}>
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<PageMotion><Home /></PageMotion>} />
+        <Route path="/accounts" element={<PageMotion><Accounts /></PageMotion>} />
+        <Route path="/accounts/:slug" element={<PageMotion><ProductDetail /></PageMotion>} />
+        <Route path="/apps" element={<PageMotion><Apps /></PageMotion>} />
+        <Route path="/apps/:slug" element={<PageMotion><ProductDetail /></PageMotion>} />
+        <Route path="/cards" element={<PageMotion><Cards /></PageMotion>} />
+        <Route path="/cards/:slug" element={<PageMotion><ProductDetail /></PageMotion>} />
+        <Route path="/compare" element={<PageMotion><Compare /></PageMotion>} />
+        <Route path="/about" element={<PageMotion><About /></PageMotion>} />
+        <Route path="/contact" element={<PageMotion><Contact /></PageMotion>} />
+        <Route path="/disclosure" element={<PageMotion><Legal kind="disclosure" /></PageMotion>} />
+        <Route path="/privacy" element={<PageMotion><Legal kind="privacy" /></PageMotion>} />
+        <Route path="/terms" element={<PageMotion><Legal kind="terms" /></PageMotion>} />
+        <Route path="*" element={<PageMotion><Home /></PageMotion>} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
+
 function App() {
   return (
     <div className="App">
       <HashRouter>
         <ScrollToTop />
+        <RouteProgress />
         <Nav />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/accounts" element={<Accounts />} />
-          <Route path="/accounts/:slug" element={<ProductDetail />} />
-          <Route path="/apps" element={<Apps />} />
-          <Route path="/apps/:slug" element={<ProductDetail />} />
-          <Route path="/cards" element={<Cards />} />
-          <Route path="/cards/:slug" element={<ProductDetail />} />
-          <Route path="/compare" element={<Compare />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/disclosure" element={<Legal kind="disclosure" />} />
-          <Route path="/privacy" element={<Legal kind="privacy" />} />
-          <Route path="/terms" element={<Legal kind="terms" />} />
-          <Route path="*" element={<Home />} />
-        </Routes>
+        <AnimatedRoutes />
         <Footer />
       </HashRouter>
     </div>
