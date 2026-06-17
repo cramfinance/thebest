@@ -1,0 +1,105 @@
+{
+  "theme": "LIGHT",
+  "archetype": "1 - Organic & Earthy (Elevated Editorial)",
+  "vibe": "SoFi meets Mercury meets The Browser Company. Premium, trustworthy, editorial fintech. High contrast emerald/warm-cream palette with expressive typography.",
+  "colors": {
+    "background": "#F7F6F2",
+    "surface": "#FFFFFF",
+    "surface_glass": "rgba(247, 246, 242, 0.75)",
+    "primary": "#0F6B4F",
+    "primary_dark": "#0A4F39",
+    "accent_gold": "#FFD166",
+    "text_primary": "#1A1A1A",
+    "text_secondary": "#5C5A53",
+    "border": "#E5E2DB",
+    "apy_live": "#10B981"
+  },
+  "typography": {
+    "headings_serif": "Playfair Display",
+    "headings_sans": "Outfit",
+    "body": "Outfit",
+    "rules": {
+      "h1": "font-serif text-5xl sm:text-6xl md:text-7xl tracking-tighter leading-[1.05] text-primary",
+      "h2": "font-serif text-3xl sm:text-4xl tracking-tight text-text_primary",
+      "h3": "font-sans text-xl sm:text-2xl font-medium tracking-tight",
+      "oversized_numerals": "font-sans text-5xl sm:text-7xl font-black text-border/60 tracking-tighter",
+      "labels": "font-sans uppercase text-[10px] sm:text-xs tracking-[0.2em] font-bold text-text_secondary",
+      "body_text": "font-sans text-base sm:text-lg leading-relaxed text-text_secondary"
+    }
+  },
+  "layout_spacing": {
+    "container_padding": "px-6 md:px-12 max-w-7xl mx-auto",
+    "section_gap": "py-24 md:py-32",
+    "card_padding": "p-8 md:p-12",
+    "border_radius": {
+      "cards": "rounded-3xl",
+      "widgets": "rounded-2xl",
+      "buttons": "rounded-full"
+    },
+    "grid": "Bento Grid Mode A - Asymmetric, wide gaps (gap-8), optical alignment over strict geometric alignment."
+  },
+  "surface_strategies": {
+    "navigation": "Crystal Glass: bg-[#F7F6F2]/70 backdrop-blur-2xl border-b border-border shadow-sm sticky top-0 z-50",
+    "cards": "Flat background (surface), 1px solid border-border, no shadow by default. Hover: shadow-xl -translate-y-1 transition-all duration-300.",
+    "live_widget": "Neumorphic / High-Contrast: Deep Emerald background with glowing Accent Gold/Green APY text."
+  },
+  "components": {
+    "hero": {
+      "layout": "Asymmetric split. Left: Editorial heading + primary CTA + trust badges. Right: Staggered, overlapping 3D-feeling product cards using framer-motion.",
+      "live_apy_widget": "Floating element in hero displaying a live-updating APY number (e.g., 5.00%). Use framer-motion for counting/slot-machine effect."
+    },
+    "marquee": {
+      "style": "The 'Editorial Ribbon'. Pale background, high contrast dark logos, massive gap-32, slow drift using react-fast-marquee."
+    },
+    "segmented_controls": {
+      "style": "Tabbed navigation for Checking/Savings, Budgeting/Finance. Pill-shaped container, sliding active background indicator."
+    },
+    "account_rows": {
+      "style": "List view for comparison. Left column features massive numeral (01, 02). Middle: Bank info, bullets, badges. Right: CTA. Add a subtle bottom border between rows."
+    },
+    "product_detail_page": {
+      "layout": "Editorial layout. Large hero graphic/abstract image. 'Bento' grid for Pros/Cons. Oversized pull-quotes for 'Who it's for'. FAQ accordions."
+    },
+    "forms": {
+      "style": "EmailJS integration. Use large, airy inputs with solid background (#F7F6F2) and thin border. Floating labels if possible, or bold small caps labels. Button should be prominent."
+    }
+  },
+  "animations": {
+    "library": "framer-motion",
+    "interactions": [
+      "Hover states on all cards: gentle lift (-translate-y-1) and shadow-lg.",
+      "Staggered entrance for list rows (opacity 0 to 1, y: 20 to 0).",
+      "Live APY data motion: blur-in or slot-machine style vertical counting animation."
+    ]
+  },
+  "assets": {
+    "icons": "lucide-react and react-icons (for brand logos via simple-icons).",
+    "images": {
+      "hero_abstract": {
+        "url": "https://images.unsplash.com/photo-1685871286419-58e4fc0de8e1?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNzl8MHwxfHNlYXJjaHwyfHxhYnN0cmFjdCUyMGdyZWVuJTIwZ29sZCUyMGZpbmFuY2V8ZW58MHx8fHwxNzgxNjczNzIyfDA&ixlib=rb-4.1.0&q=85",
+        "description": "Green and gold abstract background for hero or detail pages"
+      },
+      "campus_lifestyle_1": {
+        "url": "https://images.unsplash.com/photo-1763890869755-f1dce911f196?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwzfHxjb2xsZWdlJTIwc3R1ZGVudHMlMjBjYW1wdXMlMjBsaWZlc3R5bGV8ZW58MHx8fHwxNzgxNjczNzA4fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Two women sit at a table outside, good for 'Student Life' sections"
+      },
+      "campus_lifestyle_2": {
+        "url": "https://images.unsplash.com/photo-1763890763432-17c9a529da20?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwyfHxjb2xsZWdlJTIwc3R1ZGVudHMlMjBjYW1wdXMlMjBsaWZlc3R5bGV8ZW58MHx8fHwxNzgxNjczNzA4fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Students walking on a path in a park"
+      }
+    }
+  },
+  "accessibility_and_testing": {
+    "contrast": "Ensure text meets APCA standards. Deep emerald text on warm sand is highly accessible.",
+    "testing": "All interactive and key informational elements MUST include `data-testid` (e.g., `data-testid=\"compare-cta-button\"`)."
+  },
+  "instructions_to_main_agent": [
+    "Initialize React with Tailwind CSS and Shadcn UI (using purely React/Tailwind where Shadcn is too rigid for marketing).",
+    "Install `framer-motion`, `lucide-react`, `react-icons`, and `react-fast-marquee`.",
+    "Set up global fonts: `Playfair Display` (serif) and `Outfit` (sans).",
+    "Build out the Home page, Compare/List views, Detailed Product Pages (dynamic routes if possible, or individual static components), and Legal/Contact pages.",
+    "Use standard `react-icons/si` for bank logos where possible, or construct clean text logos. Do NOT use placeholder image URLs.",
+    "Integrate the Contact Form using EmailJS logic (mocked or pre-configured).",
+    "Apply `data-testid` to all CTAs, tabs, form inputs, and accordion triggers."
+  ]
+}
