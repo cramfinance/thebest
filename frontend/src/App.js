@@ -24,7 +24,7 @@ function ScrollToTop() {
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
         <ScrollToTop />
         <Nav />
         <Routes>
