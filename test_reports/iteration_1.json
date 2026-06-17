@@ -1,0 +1,31 @@
+{
+  "summary": "Frontend E2E testing of CRAM Finance React rebuild. 37/38 functional assertions passed. Home, Nav, Accounts/Apps tabs, Cards list, Product detail (account/app/card), Compare, About, Legal pages, and Mobile burger all working. Only issue: Contact mock-fallback path is unreachable because the EmailJS SDK is loaded in window — so with the placeholder PUBLIC_KEY the real send() rejects and the form shows 'Couldn't send right now…' instead of the intended mocked success toast.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [
+      {
+        "flow": "Contact form (EmailJS placeholder fallback)",
+        "issue": "Contact.jsx fallback condition `if (!window.emailjs)` never triggers because the EmailJS SDK is loaded globally in index.html. With the placeholder PUBLIC_KEY, emailjs.init() is skipped, then emailjs.send() rejects and the form shows the error message 'Couldn't send right now. Email hello@cram.finance directly.' instead of the documented mocked success toast 'Thanks! We will be in touch within 48 hours.' The form does NOT throw an uncaught error (caught in .catch), so the spec's hard requirement is technically satisfied — but the documented mock-success fallback behaviour is broken.",
+        "affected_selectors": ["[data-testid=\"contact-note\"]", "[data-testid=\"contact-submit\"]"]
+      }
+    ],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [
+    "In /app/frontend/src/pages/Contact.jsx, change the mock-fallback condition from `if (!window.emailjs)` to also cover the unconfigured-key case, e.g. `if (!window.emailjs || PUBLIC_KEY === 'your_emailjs_public_key')`, so the contact form shows the success toast as documented when EmailJS isn't actually wired up."
+  ],
+  "critical_code_review_comments": [
+    "Contact.jsx: mock-fallback gate is keyed only on `!window.emailjs`, but the SDK is loaded globally, so the placeholder-key case falls through to a real send() that rejects. Gate should also check PUBLIC_KEY !== 'your_emailjs_public_key'.",
+    "Contact.jsx hardcodes EmailJS SERVICE_ID/TEMPLATE_ID/PUBLIC_KEY in source; consider moving to REACT_APP_* env vars for cleaner config and per-environment overrides.",
+    "Home.jsx is ~465 lines and mixes hero, marquee, pillars, picks, stat strip, FAQ, CTA + 6 inline subcomponents — fine for now but starting to push the >700 line guideline as sections grow; consider extracting (Faq, PickCard, StatCell, Pillar) into /components/home/* if more sections are added.",
+    "ProductDetail.jsx 'Visit {issuer}' CTA is a placeholder `href=\"#\"` with preventDefault — flagged so it's not forgotten when affiliate links go live."
+  ],
+  "updated_files": [],
+  "success_rate": {"frontend": "97%"},
+  "seed_data_creation": "none",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Frontend at https://creative-refresh-15.preview.emergentagent.com fully works. All routes, tabs, product slugs (chase-college-checking, sofi-savings, ynab, empower, discover-it-student-cash-back), LiveApy widget visibility rule (only on accounts detail), Compare shimmer + 3 cards, mobile burger, and Legal pages verified. Only follow-up: Contact form mock-success fallback (see action_items)."
+}
