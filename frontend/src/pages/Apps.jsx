@@ -29,6 +29,8 @@ export default function Apps() {
           We've tested the most popular apps. Here's what's actually worth your time — and what's marketing fluff.
         </p>
 
+        <Glossary section="apps" />
+
         <TabBar
           testIdPrefix="apps-tab"
           active={tab}
@@ -56,7 +58,6 @@ export default function Apps() {
           </AnimatePresence>
         </div>
       </section>
-      <Glossary section="apps" />
     </main>
   );
 }

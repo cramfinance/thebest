@@ -14,6 +14,8 @@ export default function Cards() {
           A strong student credit card builds credit, earns cash back, and unlocks college-friendly perks.
         </p>
 
+        <Glossary section="cards" />
+
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           {cards.map((p, i) => (
             <ProductRow key={p.slug} product={p} index={i} sectionPath="/cards" />
@@ -24,7 +26,6 @@ export default function Cards() {
           Always compare rates, fees and eligibility before applying. Card offers may vary by state and school.
         </p>
       </section>
-      <Glossary section="cards" />
     </main>
   );
 }
