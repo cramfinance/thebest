@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import ProductRow from "../components/ProductRow";
 import TabBar from "../components/TabBar";
+import Glossary from "../components/Glossary";
 import { accounts } from "../data/products";
 
 export default function Accounts() {
@@ -27,6 +28,8 @@ export default function Accounts() {
         <p style={{ fontSize: 18, color: "var(--t2)", maxWidth: 640 }}>
           We compared fees, ATM access, sign-up bonuses and student perks. Here's what actually stands out.
         </p>
+
+        <Glossary section="accounts" headline="Before you compare — know the lingo." />
 
         <TabBar
           testIdPrefix="accounts-tab"

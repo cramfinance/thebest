@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import ProductRow from "../components/ProductRow";
 import TabBar from "../components/TabBar";
+import Glossary from "../components/Glossary";
 import { apps } from "../data/products";
 
 export default function Apps() {
@@ -27,6 +28,8 @@ export default function Apps() {
         <p style={{ fontSize: 18, color: "var(--t2)", maxWidth: 640 }}>
           We've tested the most popular apps. Here's what's actually worth your time — and what's marketing fluff.
         </p>
+
+        <Glossary section="apps" headline="Decode the budgeting jargon first." />
 
         <TabBar
           testIdPrefix="apps-tab"

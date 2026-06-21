@@ -1,4 +1,5 @@
 import ProductRow from "../components/ProductRow";
+import Glossary from "../components/Glossary";
 import { cards } from "../data/products";
 
 export default function Cards() {
@@ -12,6 +13,8 @@ export default function Cards() {
         <p style={{ fontSize: 18, color: "var(--t2)", maxWidth: 640, marginBottom: 48 }}>
           A strong student credit card builds credit, earns cash back, and unlocks college-friendly perks.
         </p>
+
+        <Glossary section="cards" headline="Credit cards 101 — the terms that matter." />
 
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           {cards.map((p, i) => (
