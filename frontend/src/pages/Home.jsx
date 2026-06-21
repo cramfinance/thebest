@@ -35,7 +35,7 @@ export default function Home() {
           }}
         />
         <div
-          className="container"
+          className="container hero-grid"
           style={{
             position: "relative",
             display: "grid",
@@ -79,6 +79,7 @@ export default function Home() {
           {/* Right visual */}
           <div style={{ position: "relative", minHeight: 540 }} className="hero-visual">
             <div
+              className="hero-visual__apy"
               style={{
                 position: "absolute",
                 top: 0,
@@ -92,6 +93,7 @@ export default function Home() {
 
             {/* Editor's pick card */}
             <div
+              className="hero-visual__pick"
               style={{
                 position: "absolute",
                 left: -10,
@@ -139,6 +141,7 @@ export default function Home() {
 
             {/* small floating chip */}
             <div
+              className="hero-visual__chip"
               style={{
                 position: "absolute",
                 left: 240,
@@ -161,8 +164,42 @@ export default function Home() {
 
         <style>{`
           @media (max-width: 1000px) {
-            .hero-visual { display: none !important; }
+            .hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
             .hero-content { text-align: left; }
+          }
+          @media (max-width: 900px) {
+            /* Switch the hero visual from absolute-overlap to a clean stack */
+            .hero-visual {
+              min-height: 0 !important;
+              display: flex !important;
+              flex-direction: column !important;
+              gap: 22px !important;
+              align-items: center !important;
+              padding: 8px 4px 12px !important;
+            }
+            .hero-visual__apy,
+            .hero-visual__pick,
+            .hero-visual__chip {
+              position: static !important;
+              left: auto !important;
+              right: auto !important;
+              top: auto !important;
+              bottom: auto !important;
+            }
+            .hero-visual__apy {
+              width: 100% !important;
+              max-width: 380px !important;
+              transform: rotate(1.5deg) !important;
+            }
+            .hero-visual__pick {
+              width: 100% !important;
+              max-width: 340px !important;
+              transform: rotate(-2deg) !important;
+            }
+            .hero-visual__chip {
+              transform: none !important;
+              align-self: center !important;
+            }
           }
         `}</style>
       </section>
