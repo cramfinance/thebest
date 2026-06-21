@@ -29,8 +29,6 @@ export default function Accounts() {
           We compared fees, ATM access, sign-up bonuses and student perks. Here's what actually stands out.
         </p>
 
-        <Glossary section="accounts" headline="Before you compare — know the lingo." />
-
         <TabBar
           testIdPrefix="accounts-tab"
           active={tab}
@@ -51,6 +49,7 @@ export default function Accounts() {
           APYs and bonuses subject to change. Always check the issuer's terms before opening an account.
         </p>
       </section>
+      <Glossary section="accounts" />
     </main>
   );
 }
